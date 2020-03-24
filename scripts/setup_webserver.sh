@@ -658,26 +658,16 @@ EOF
   chgrp root apache2.conf
   cp -p apache2.conf /etc/apache2/
   wget https://netpa.novasbe.pt/assets/azuremoodle/mpm_prefork.conf
-  chmod 644 mpm_prefrok.conf
-  chown root mpm_prefrok.conf
-  chgrp root mpm_prefrok.conf
+  chmod 644 mpm_prefork.conf
+  chown root mpm_prefork.conf
+  chgrp root mpm_prefork.conf
   cp -p mpm_prefork.conf /etc/apache2/mods-available/
   wget https://netpa.novasbe.pt/assets/azuremoodle/php.ini
   chmod 644 php.ini
   chown root php.ini
   chgrp root php.ini
   cp -p php.ini /etc/php/7.0/apache2/
-  wget https://netpa.novasbe.pt/assets/azuremoodle/nginx.crt
-  chmod 400 nginx.crt
-  chown www-data nginx.crt
-  chgrp www-data nginx.crt
-  cp -p nginx.crt /moodle/certs
-  wget https://netpa.novasbe.pt/assets/azuremoodle/nginx.key
-  chmod 400 nginx.key
-  chown www-data nginx.key
-  chgrp www-data nginx.key
-  cp -p nginx.key /moodle/certs
   service apache2 restart
   service nginx restart
-  
+  cp php.ini script_nova_executado.txt
 }  > /tmp/setup.log
