@@ -652,22 +652,24 @@ EOF
   # Restart Varnish
   systemctl daemon-reload
   service varnish restart
-  wget https://netpa.novasbe.pt/assets/azuremoodle/apache2.conf
-  chmod 644 apache2.conf
-  chown root apache2.conf
-  chgrp root apache2.conf
-  cp -p apache2.conf /etc/apache2/
-  wget https://netpa.novasbe.pt/assets/azuremoodle/mpm_prefork.conf
-  chmod 644 mpm_prefork.conf
-  chown root mpm_prefork.conf
-  chgrp root mpm_prefork.conf
-  cp -p mpm_prefork.conf /etc/apache2/mods-available/
-  wget https://netpa.novasbe.pt/assets/azuremoodle/php.ini
-  chmod 644 php.ini
-  chown root php.ini
-  chgrp root php.ini
-  cp -p php.ini /etc/php/7.0/apache2/
-  service apache2 restart
-  service nginx restart
-  cp php.ini script_nova_executado.txt
+  #wget https://netpa.novasbe.pt/assets/azuremoodle/apache2.conf
+  #chmod 644 apache2.conf
+  #chown root apache2.conf
+  #chgrp root apache2.conf
+  #cp -p apache2.conf /etc/apache2/
+  #wget https://netpa.novasbe.pt/assets/azuremoodle/mpm_prefork.conf
+  #chmod 644 mpm_prefork.conf
+  #chown root mpm_prefork.conf
+  #chgrp root mpm_prefork.conf
+  #cp -p mpm_prefork.conf /etc/apache2/mods-available/
+  #wget https://netpa.novasbe.pt/assets/azuremoodle/php.ini
+  #chmod 644 php.ini
+  #chown root php.ini
+  #chgrp root php.ini
+  #cp -p php.ini /etc/php/7.0/apache2/
+  #service apache2 restart
+  #service nginx restart
+  #cp php.ini script_nova_executado.txt
+  cp php.ini script_nova_executado_sem_tunning.txt
+  
 }  > /tmp/setup.log
