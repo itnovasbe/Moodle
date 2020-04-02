@@ -669,7 +669,12 @@ EOF
   #cp -p php.ini /etc/php/7.0/apache2/
   #service apache2 restart
   #service nginx restart
-  #cp php.ini script_nova_executado.txt
-  cp php.ini script_nova_executado_sem_tunning.txt
+  #echo "FIM" > script_nova_executado.txt
+  crontab -l > mycron
+  echo "* * * * * /moodle/scripts_novasbe/cpu.sh  >/dev/null 2>&1" >> mycron
+  crontab mycron
+  echo "FIM" > script_nova_executado_sem_tunning.txt
+
+  
   
 }  > /tmp/setup.log
