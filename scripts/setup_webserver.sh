@@ -670,10 +670,11 @@ EOF
   #service apache2 restart
   #service nginx restart
   #echo "FIM" > script_nova_executado.txt
-  crontab -l > mycron
+  echo "FIM" > script_nova_executado_sem_tunning-A.txt
+  #crontab -l > mycron
   echo "* * * * * /moodle/scripts_novasbe/cpu.sh  >/dev/null 2>&1" >> mycron
   crontab mycron
-  echo "FIM" > script_nova_executado_sem_tunning.txt
+  echo "FIM" > script_nova_executado_sem_tunning-B.txt
 
   
   
