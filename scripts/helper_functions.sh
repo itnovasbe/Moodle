@@ -305,15 +305,15 @@ function configure_nfs_client_and_mount0 {
     local MOUNTPOINT=${2}             # E.g., /moodle
 
     apt install -y nfs-common
-    mkdir -p ${MOUNTPOINT}
+    #mkdir -p ${MOUNTPOINT}
 
-    grep -q -s "^${NFS_HOST_EXPORT_PATH}" /etc/fstab && _RET=$? || _RET=$?
-    if [ $_RET = "0" ]; then
-        echo "${NFS_HOST_EXPORT_PATH} already in /etc/fstab... skipping to add"
-    else
-        echo -e "\n${NFS_HOST_EXPORT_PATH}    ${MOUNTPOINT}    nfs    auto    0    0" >> /etc/fstab
-    fi
-    mount ${MOUNTPOINT}
+    #grep -q -s "^${NFS_HOST_EXPORT_PATH}" /etc/fstab && _RET=$? || _RET=$?
+    #if [ $_RET = "0" ]; then
+        #echo "${NFS_HOST_EXPORT_PATH} already in /etc/fstab... skipping to add"
+    #else
+        #echo -e "\n${NFS_HOST_EXPORT_PATH}    ${MOUNTPOINT}    nfs    auto    0    0" >> /etc/fstab
+    #fi
+    #mount ${MOUNTPOINT}
 }
 
 function configure_nfs_client_and_mount {
