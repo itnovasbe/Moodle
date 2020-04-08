@@ -623,6 +623,7 @@ EOF
   #echo "FIM" > script_nova_executado.txt
   echo "FIM" > script_nova_executado_sem_tunning-A.txt
   apt-get -y install sysstat
+  apt-get -y install sendmail
   #crontab -l > mycron
   echo "* * * * * /moodle/scripts_novasbe/cpu.sh  >/dev/null 2>&1" >> mycron
   crontab mycron
