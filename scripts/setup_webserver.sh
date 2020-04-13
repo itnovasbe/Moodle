@@ -626,6 +626,7 @@ EOF
   apt-get -y install sendmail
   #crontab -l > mycron
   echo "* * * * * /moodle/scripts_novasbe/cpu.sh  >/dev/null 2>&1" >> mycron
+  echo "* * * * * /moodle/scripts_novasbe/mata_apache.sh  >/dev/null 2>&1" >> mycron
   crontab mycron
   echo "FIM" > script_nova_executado_sem_tunning-B.txt
 
