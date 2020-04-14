@@ -311,9 +311,9 @@ function configure_nfs_client_and_mount0 {
     if [ $_RET = "0" ]; then
         echo "${NFS_HOST_EXPORT_PATH} already in /etc/fstab... skipping to add"
     else
-        #echo -e "\n${NFS_HOST_EXPORT_PATH}    ${MOUNTPOINT}    nfs    auto    0    0" >> /etc/fstab
+        echo -e "\n${NFS_HOST_EXPORT_PATH}    ${MOUNTPOINT}    nfs    auto    0    0" >> /etc/fstab
         # by pedro.pais@novasbe.pt
-        echo -e "\n${NFS_HOST_EXPORT_PATH}    ${MOUNTPOINT}    nfs    nolock,hard,intr,nfsvers=3,tcp,bg    0    0" >> /etc/fstab
+        #echo -e "\n${NFS_HOST_EXPORT_PATH}    ${MOUNTPOINT}    nfs    nolock,hard,intr,nfsvers=3,tcp,bg    0    0" >> /etc/fstab
     fi
     mount ${MOUNTPOINT}
 }
