@@ -603,33 +603,50 @@ EOF
   # Restart Varnish
   systemctl daemon-reload
   service varnish restart
+  
   #wget https://netpa.novasbe.pt/assets/azuremoodle/apache2.conf
   #chmod 644 apache2.conf
   #chown root apache2.conf
   #chgrp root apache2.conf
   #cp -p apache2.conf /etc/apache2/
+
+  cp -p /moodle/scripts_novasbe/configuracoes/apache2.conf /etc/apache2/
+  
   #wget https://netpa.novasbe.pt/assets/azuremoodle/mpm_prefork.conf
   #chmod 644 mpm_prefork.conf
   #chown root mpm_prefork.conf
   #chgrp root mpm_prefork.conf
   #cp -p mpm_prefork.conf /etc/apache2/mods-available/
+  
+  cp -p /moodle/scripts_novasbe/configuracoes/mpm_prefork.conf /etc/apache2/mods-available/
+
+  
   #wget https://netpa.novasbe.pt/assets/azuremoodle/php.ini
   #chmod 644 php.ini
   #chown root php.ini
   #chgrp root php.ini
   #cp -p php.ini /etc/php/7.0/apache2/
-  #service apache2 restart
-  #service nginx restart
-  #echo "FIM" > script_nova_executado.txt
-  echo "FIM" > script_nova_executado_sem_tunning-A.txt
+  
+  cp -p /moodle/scripts_novasbe/configuracoes/php.ini /etc/php/7.0/apache2/
+
+  service apache2 restart
+  service nginx restart
+  echo "FIM" > script_nova_executado.txt
+  #echo "FIM" > script_nova_executado_sem_tunning-A.txt
+  
   apt-get -y install sysstat
   apt-get -y install sendmail
   #crontab -l > mycron
-  echo "* * * * * /moodle/scripts_novasbe/cpu.sh  >/dev/null 2>&1" >> mycron
+  echo "* * * * * /moodle/scripts_novasbe/cpu.sh  >/dev/null 2>&1" > mycron
   echo "* * * * * /moodle/scripts_novasbe/mata_apache.sh  >/dev/null 2>&1" >> mycron
+  echo "* * * * * ( sleep 10 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
+  echo "* * * * * ( sleep 20 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
+  echo "* * * * * ( sleep 30 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
+  echo "* * * * * ( sleep 40 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
+  echo "* * * * * ( sleep 50 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
   crontab mycron
   echo 127.0.0.1 `hostname` >> /etc/hosts
-  echo "FIM" > script_nova_executado_sem_tunning-B.txt
+  echo "FIM" > script_nova_B.txt
 
   
   
