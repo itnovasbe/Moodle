@@ -22,6 +22,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE..
 
+# TEMP FOR TESTING
+sleep 180
+
 set -ex
 
 moodle_on_azure_configs_json_path=${1}
