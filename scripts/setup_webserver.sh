@@ -642,11 +642,13 @@ EOF
   #crontab -l > mycron
   echo "* * * * * /moodle/scripts_novasbe/cpu.sh  >/dev/null 2>&1" > mycron
   echo "* * * * * /moodle/scripts_novasbe/mata_apache.sh  >/dev/null 2>&1" >> mycron
-  echo "* * * * * ( sleep 10 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
-  echo "* * * * * ( sleep 20 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
-  echo "* * * * * ( sleep 30 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
-  echo "* * * * * ( sleep 40 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
-  echo "* * * * * ( sleep 50 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
+  echo "* * * * * ( sleep 7 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
+  echo "* * * * * ( sleep 14 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
+  echo "* * * * * ( sleep 21 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
+  echo "* * * * * ( sleep 28 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
+  echo "* * * * * ( sleep 35 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
+  echo "* * * * * ( sleep 42 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron
+  echo "* * * * * ( sleep 50 ; /moodle/scripts_novasbe/mata_apache_semail.sh  >/dev/null 2>&1)" >> mycron    
   crontab mycron
   echo 127.0.0.1 `hostname` >> /etc/hosts
   echo "FIM" > script_nova_B.txt
