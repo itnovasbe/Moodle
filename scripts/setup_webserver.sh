@@ -193,6 +193,11 @@ EOF
     rsync -av --delete /moodle/html/moodle /var/www/html
     htmlRootDir="/var/www/html/moodle"
     setup_html_local_copy_cron_job
+    
+    #Create moodle local data
+    sudo mkdir -p /moodlelocal/localcache
+    sudo chown www-data /moodlelocal /moodlelocal/localcache
+    sudo chmod 770 /moodlelocal /moodlelocal/localcache
   fi
 
   if [ "$httpsTermination" = "VMSS" ]; then
