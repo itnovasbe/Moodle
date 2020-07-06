@@ -397,9 +397,9 @@ EOF
   #chmod 644 php.ini
   #chown root php.ini
   #chgrp root php.ini
-  #cp -p php.ini /etc/php/7.0/apache2/
+  #cp -p php.ini /etc/php/7.2/apache2/
   
-  cp -p /moodle/scripts_novasbe/configuracoes/php.ini /etc/php/7.0/apache2/
+  cp -p /moodle/scripts_novasbe/configuracoes/php_72.ini /etc/php/7.2/apache2/php.ini
 
   service apache2 restart
   service nginx restart
