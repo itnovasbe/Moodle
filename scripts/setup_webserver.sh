@@ -51,6 +51,7 @@ check_fileServerType_param $fileServerType
 
 {
   export DEBIAN_FRONTEND=noninteractive
+  export UCF_FORCE_CONFOLD=1
 
   # make sure the system does automatic update
   sudo apt-get -y update
@@ -59,7 +60,7 @@ check_fileServerType_param $fileServerType
   # install pre-requisites
   sudo apt-get -y install software-properties-common unzip rsyslog
 
-  sudo apt-get -y install postgresql-client mysql-client git
+  sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" -qq -y install postgresql-client mysql-client git
   
   sudo apt-get -y install ghostscript
 
