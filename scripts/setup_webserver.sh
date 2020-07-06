@@ -58,7 +58,7 @@ check_fileServerType_param $fileServerType
   sudo apt-get -y update
   sudo apt-get -y install unattended-upgrades debconf-utils
 
-  echo 'libssl1.1 libraries/restart-without-asking boolean false' | sudo debconf-set-selections
+  echo 'libssl1.1 libraries/restart-without-asking boolean true' | sudo debconf-set-selections
 
   # install pre-requisites
   sudo apt-get -y install software-properties-common unzip rsyslog
