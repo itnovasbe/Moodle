@@ -50,12 +50,14 @@ echo $htmlLocalCopySwitch >> /tmp/vars.txt
 check_fileServerType_param $fileServerType
 
 {
+  export DEBIAN_FRONTEND=noninteractive
+
   # make sure the system does automatic update
   sudo apt-get -y update
   sudo apt-get -y install unattended-upgrades
 
   # install pre-requisites
-  sudo apt-get -y install python-software-properties unzip rsyslog
+  sudo apt-get -y install software-properties-common unzip rsyslog
 
   sudo apt-get -y install postgresql-client mysql-client git
   
@@ -69,6 +71,8 @@ check_fileServerType_param $fileServerType
   elif [ "$fileServerType" = "azurefiles" ]; then
     sudo apt-get -y install cifs-utils
   fi
+
+  sudo ln -snf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime && echo Europe/Lisbon > /etc/timezone
 
   # install the base stack
   sudo apt-get -y install php php-cli php-curl php-zip php-pear php-mbstring php-dev mcrypt
@@ -86,7 +90,7 @@ check_fileServerType_param $fileServerType
   fi
 
   # Moodle requirements
-  sudo apt-get install -y graphviz aspell php-soap php-json php-redis php-bcmath php-gd php-pgsql php-mysql php-xmlrpc php-intl php-xml php-bz2 php7.0-ldap
+  sudo apt-get install -y graphviz aspell php-soap php-json php-redis php-bcmath php-gd php-pgsql php-mysql php-xmlrpc php-intl php-xml php-bz2 php-ldap
   if [ "$dbServerType" = "mssql" ]; then
     install_php_mssql_driver
   fi
