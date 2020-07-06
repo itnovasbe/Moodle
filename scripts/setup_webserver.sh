@@ -52,6 +52,7 @@ check_fileServerType_param $fileServerType
 {
   export DEBIAN_FRONTEND=noninteractive
   export UCF_FORCE_CONFOLD=1
+  export DEBCONF_NONINTERACTIVE_SEEN=true
 
   # make sure the system does automatic update
   sudo apt-get -y update
